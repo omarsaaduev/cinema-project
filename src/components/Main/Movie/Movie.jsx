@@ -3,7 +3,7 @@ export default function Movie() {
   return (
     <section className="movie">
         <div className="movie__background">
-            <img src="src\assets\images\avatar.png" alt="avatar" />
+            
         </div>
         <div className="movie__wrapper">
             <div className="movie__btn-prev">
