@@ -1,11 +1,9 @@
-import Latest from "./Latest/Latest";
-import Movie from "./Movie/Movie";
+import Home from "../../pages/Home/Home";
 
 export default function Main() {
   return (
     <main>
-        <Movie/>
-        <Latest/>
+        <Home/>
     </main>
   )
 }

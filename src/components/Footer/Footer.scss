@@ -1,0 +1,69 @@
+.footer {
+    position: relative;
+    padding-top: 100px;
+    background-color: #181818;
+    font-size: 16px;
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    &__about {
+        display: flex;
+        width: 60%;
+    }
+    &__map {
+        height: 200px;
+    }
+    &__info {
+        display: flex;
+        align-items: center;
+        column-gap: 60px;
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        a {
+            color: white;
+        }
+    }
+    &__info li::before {
+        content: url("/src/assets/icons/arrow.svg");
+        margin-right: 15px;
+    }
+    &__title {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 35px;
+    }
+    &__about-text {
+        p {
+            line-height: 170%;
+        }
+    }
+    &__socials {
+        display: flex;
+        column-gap: 10px;
+        margin-top: 30px;
+        img {
+            width: 40px;
+            height: 40px;
+            padding: 10px;
+            background: rgb(51, 61, 82);
+            border-radius: 5px;
+        }
+    }
+    &__bottom {
+        background-image: url("/src/assets/images/popcorn.png");
+        background-position: center;
+        height: 225px;
+    }
+    &__popcorn {
+        position: absolute;
+        top: -100px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
