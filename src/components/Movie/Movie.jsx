@@ -1,5 +1,6 @@
 import './Movie.scss'
 export default function Movie() {
+    
   return (
     <section className="movie">
         <div className="movie__background">

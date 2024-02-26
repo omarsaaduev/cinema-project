@@ -1,17 +1,25 @@
+import { Link } from 'react-router-dom'
 import './Header.scss'
+import { useState } from 'react'
 const Header = () => {
+  const [activeLink, setAktiveLink] = useState('home');
+  
   return (
     <header className='header' >
         <div className="container">
             <div className="header__top">
-            <div className="header-top__logo">
+            <Link to='/' className="header-top__logo">
                 <img src="src\assets\images\logo.png" alt="logo" />
-            </div>
+            </Link>
             <ul className="header__nav">
-                <li className='active'><a href="#">Home</a></li>
+                <li className={activeLink==='home'? 'active': ''} onClick={() => setAktiveLink('home')}>
+                  <Link to='/'>Home</Link>
+                </li>
                 <li><a href="#">Distributions</a></li>
                 <li><a href="#">Production</a></li>
-                <li><a href="#">About Us</a></li>
+                <li className={activeLink==='about'? 'active': ''} onClick={() => setAktiveLink('about')}>
+                  <Link to='/about'>About Us</Link>
+                </li>
                 <li><a href="#">Contact Us</a></li>
             </ul>
             </div>
