@@ -1,42 +1,75 @@
+import { useEffect, useState } from 'react';
 import './Movie.scss'
+import { getData } from '../../api/getMovies';
+import { formatMovieLength } from '../../utils/formatMovieLength';
+import { Link } from 'react-router-dom';
+
 export default function Movie() {
+    const [movies, setMovies] = useState([]);
+    const [index, setIndex] = useState(0);
+    const currentMovie = movies[index];
+    
+
+    useEffect(() => {
+        const fetchMovies = async () => {
+          const response = await getData('rating.imdb=7-10&limit=30');
+          setMovies(response.docs)
+        }
+        fetchMovies()
+      },[]);
+
+      const nextMovie = () => 
+      {
+        if(index>=29){
+            setIndex(index);
+        }else{
+            setIndex(index + 1);
+        }
+      }
+
+      const prevMovie = () => {
+        if(index<=0)
+        setIndex(index);
+        else{ setIndex(index-1)}
+      }
+
     
   return (
-    <section className="movie">
-        <div className="movie__background">
-            
-        </div>
+    currentMovie && 
+    <section style={{backgroundImage: `url(${currentMovie.backdrop.url})`}} className="movie">
         <div className="movie__wrapper">
-            <div className="movie__btn-prev">
+            <div onClick={prevMovie} className="movie__btn-prev">
                 <img src="src\assets\icons\prev.png" alt="prev" />
             </div>
             <div className="movie__info container">
                 <div className="movie__text">
                     <div className="movie__category">
                         <div>new</div>
-                        <span>Best of 2022</span>
+                        <span>{currentMovie.top250? `#${currentMovie.top250} in the 250`: 'top 250'}</span>
                     </div>
-                    <div className="movie__name">Avatar 2</div>
+                    <div className="movie__name"></div>
                     <div className="movie__dop-info">
-                        <div className="movie__pg">pg-18</div>
-                        <div className="movie__duration">3hr 10min</div>
+                        <div className="movie__pg">pg-{currentMovie.ageRating}</div>
+                        <div className="movie__duration">{formatMovieLength(currentMovie.movieLength)}</div>
                         <div className="movie__raiting">
                             <img src="src\assets\images\raiting.png" alt="raiting"/>
-                            <span>8.5</span>
+                            <span>{currentMovie.rating.imdb}</span>
                         </div>
-                        <div className="movie__year">2020</div>
+                        <div className="movie__year">{currentMovie.year}</div>
                     </div>
-                    <p>The Way of Water is a 2022 American epic science fiction film co-produced and directed by James Cameron, who co-wrote the screenplay with Rick Jaffa</p>
-                    <div className="movie__btn">
-                        <img src="src\assets\icons\play.svg" alt="play" />
-                        <span>Whatch Now</span>
-                    </div>
+                    <p>{currentMovie.description}</p>
+                    <Link to={`/movies/${index+1}`}>
+                        <div className="movie__btn">
+                            <img src="src\assets\icons\play.svg" alt="play" />
+                            <span>Whatch Now</span>
+                        </div>
+                    </Link>
                 </div>
                 <div className="movie__video">
-                    <img src="src\assets\images\video.png" alt="video" />
+                <img src={currentMovie.logo.url} alt="" />
                 </div>
             </div>
-            <div className="movie__btn-next">
+            <div onClick={nextMovie} className="movie__btn-next">
                 <img src="src\assets\icons\next.png" alt="next" />
             </div>
         </div>

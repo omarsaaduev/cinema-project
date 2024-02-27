@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     padding-top: 120px;
-    background-image: url("/src/assets/images/avatar.png");
+    // background-image: url("/src/assets/images/avatar.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -12,10 +12,14 @@
         display: flex;
         align-items: center;
     }
+    &__video {
+        width: 100%;
+    }
     &__info {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        column-gap: 45px;
     }
     &__text {
         max-width: 600px;
@@ -47,17 +51,32 @@
             font-size: 12px;
         }
     }
+    @keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
     &__name {
-        font-size: 120px;
+        font-size: 75px;
         font-weight: 600;
         letter-spacing: -2px;
+        animation: float 3s infinite;
+        line-height: 1;
+        margin: 40px 0;
     }
     &__dop-info {
         display: flex;
         align-items: center;
         gap: 20px;
         font-size: 20px;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
     &__pg {
         font-weight: 600;
@@ -69,6 +88,10 @@
         display: flex;
         align-items: center;
         gap: 8px;
+        img {
+            width: 51px;
+            height: 22px;
+        }
     }
 
     &__btn {
@@ -86,8 +109,14 @@
     }
     &__btn-prev {
         margin-right: 50px;
+        cursor: pointer;
     }
+
     &__btn-next {
         margin-left: 50px;
+        cursor: pointer;
+    }
+    a {
+        color: white;
     }
 }

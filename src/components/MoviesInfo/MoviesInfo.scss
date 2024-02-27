@@ -1,0 +1,41 @@
+.movies-info {
+    &__background {
+        width: 100%;
+        height: 60vh;
+        object-fit: cover;
+        object-position: center;
+    }
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+    }
+    &__distributions {
+        h4 {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            margin-bottom: 45px;
+        }
+        p {
+            color: rgb(110, 118, 129);
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+    }
+    &__countries {
+        display: flex;
+        align-items: center;
+        gap: 35px;
+    }
+    &__genres {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        span {
+            font-size: 17px;
+            color: #b47825;
+            text-transform: uppercase;
+        }
+    }
+}

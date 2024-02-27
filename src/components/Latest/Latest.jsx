@@ -4,13 +4,12 @@ import './Latest.scss'
 import { getData } from '../../api/getMovies';
 
 export default function Latest() {
-  const [movies, setMovies] = useState([]);
+  const [latestMovies, setLatestMovies] = useState([]);
   const [limit,setLimit] = useState(8)
   useEffect(() => {
     const fetchMovies = async (limit) => {
       const response = await getData(`year=2023&limit=${limit}`);
-      console.log(response)
-      setMovies(response.docs)
+      setLatestMovies(response.docs)
     }
     fetchMovies(limit)
   },[limit]);
@@ -31,7 +30,7 @@ export default function Latest() {
       <div onClick={handleMoreClick} className="latest__more">See more</div>
         </div>
         <div className="latest__wrappers">
-          {movies?.map(movie => (
+          {latestMovies?.map(movie => (
             <div key={movie.id} className="latest__item">
               <img src={movie.poster.url} alt="latest1" />
               <h4>{movie.name}</h4>
