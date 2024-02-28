@@ -1,0 +1,15 @@
+.image-slider-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-slider {
+  display: flex;
+  gap: 40px;
+}
+
+.image-slider img {
+  flex-shrink: 0;
+  width: 280px;
+}

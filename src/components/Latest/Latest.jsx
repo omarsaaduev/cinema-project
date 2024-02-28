@@ -1,18 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { formatMovieLength } from '../../utils/formatMovieLength'
 import './Latest.scss'
-import { getData } from '../../api/getMovies';
+import { Link } from 'react-router-dom';
+import { Context } from '../../context/context';
 
 export default function Latest() {
-  const [latestMovies, setLatestMovies] = useState([]);
-  const [limit,setLimit] = useState(8)
-  useEffect(() => {
-    const fetchMovies = async (limit) => {
-      const response = await getData(`year=2023&limit=${limit}`);
-      setLatestMovies(response.docs)
-    }
-    fetchMovies(limit)
-  },[limit]);
+  const {setLimit, latestMovies} =useContext(Context)
 
     const handleMoreClick = () => {
       setLimit(32);
@@ -30,12 +23,14 @@ export default function Latest() {
       <div onClick={handleMoreClick} className="latest__more">See more</div>
         </div>
         <div className="latest__wrappers">
-          {latestMovies?.map(movie => (
-            <div key={movie.id} className="latest__item">
+          {latestMovies?.map((movie, id) => (
+            <Link to={`/latest/${id+1}`} key={movie.name}>
+            <div className="latest__item">
               <img src={movie.poster.url} alt="latest1" />
               <h4>{movie.name}</h4>
               <p>{formatMovieLength(movie.movieLength,movie.seriesLength)}<span>{movie.genres[0].name}</span></p>
-          </div>
+            </div>
+            </Link>
           ))}
         </div>
       </div>
