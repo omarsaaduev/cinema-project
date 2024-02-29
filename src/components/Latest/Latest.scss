@@ -34,6 +34,7 @@
         row-gap: 54px;
     }
     &__item {
+        transition: transform 0.5s;
         img {
             width: 231px;
             height: 318px;
@@ -57,5 +58,8 @@
                 color: #fb1351;
             }
         }
+    }
+    &__item:hover {
+        transform: scale(1.05) translateX(7px) translateY(-7px);
     }
 }

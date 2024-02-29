@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Sorting from "../../components/Sorting/Sorting";
 
 import "./Movies.scss";
 import { formatMovieLength } from "../../utils/formatMovieLength";
+import { Context } from "../../context/context";
+import { Link } from "react-router-dom";
 export default function Movies() {
-  const [movies, setMovies] = useState([]);
+  // const [movies, setMovies] = useState([]);
+  const {allMovies, setAllMovies} = useContext(Context);
   const [limit, setLimit] = useState(40);
 
   return (
@@ -17,12 +20,13 @@ export default function Movies() {
         </p>
         <div className="movies__sorting">
           <div>
-            <Sorting setMovies={setMovies} limit={limit} setLimit={setLimit}/>
+            <Sorting setAllMovies={setAllMovies} limit={limit} setLimit={setLimit}/>
           </div>
         </div>
         <div className="movies__wrapper">
-          {movies.map((item) => (
-            <div className="movies__item" key={item}>
+          {allMovies.map((item,index) => (
+            <Link to={`/allmovies/${index +1 }`} key={item}>
+             <div className="movies__item" >
               <img 
                 src={item.poster.url || item.backdrop.url} 
                 alt="movies" />
@@ -32,9 +36,10 @@ export default function Movies() {
                 <span>{item.genres[0].name}</span>
               </p>
             </div>
+            </Link>
           ))}
         </div>
-        {movies>20 && <div onClick={() => setLimit(prev => prev+40)} className="movies__dop-btn">Посмотреть еще</div>}
+        {<div onClick={() => setLimit(prev => prev+40)} className="movies__dop-btn">Показать еще...</div>}
         
       </div>
     </section>

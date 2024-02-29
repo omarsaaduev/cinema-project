@@ -10,7 +10,7 @@ export default function Latest() {
     const handleMoreClick = () => {
       setLimit(32);
       window.scrollTo({
-        top: window.pageYOffset + 600, // Скроллируем на 300 пикселей вниз
+        top: window.pageYOffset + 700, // Скроллируем на 300 пикселей вниз
         behavior: 'smooth' // Добавляем плавную анимацию скролла
       });
     };

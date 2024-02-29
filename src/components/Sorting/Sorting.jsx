@@ -3,7 +3,7 @@ import './Sorting.scss'
 import { getData } from '../../api/getMovies';
 
 
-const Sorting = ({setMovies, limit, setLimit}) => {
+const Sorting = ({setAllMovies, limit, setLimit}) => {
   const [selectedRaiting, setSelectedRaiting] = useState('');
   const [selectedGener, setSelectedGener] = useState('');
   const [selectedCountry, setSelectedCountry] = useState('');
@@ -13,7 +13,7 @@ const Sorting = ({setMovies, limit, setLimit}) => {
 
     const fetchMovies = async () => {
       const response = await getData(`limit=${limit}&${selectedRaiting}&${selectedGener}&${selectedCountry}&${selectedYear}`)
-      setMovies(response.docs)
+      setAllMovies(response.docs)
     }
     fetchMovies()
   },[selectedRaiting, selectedGener, selectedCountry, selectedYear,limit]);

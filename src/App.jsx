@@ -9,10 +9,12 @@ import { useEffect, useState } from "react";
 import LatestInfo from "./components/LatestInfo/LatestInfo";
 import UpcomingInfo from "./components/UpcomingInfo/UpcomingInfo";
 import Movies from "./pages/Movies/Movies";
+import AllMoviesInfo from "./components/AllMoviesInfo/AllMoviesInfo";
 
 function App() {
   const [latestMovies, setLatestMovies] = useState([]);
   const [upMovies, setUpMovies] = useState([])
+  const [allMovies, setAllMovies] = useState([]);
   const [limit,setLimit] = useState(8)
   useEffect(() => {
     const fetchMovies = async (limit) => {
@@ -31,7 +33,7 @@ function App() {
    
   return (
     <>
-      <Context.Provider value={{latestMovies,setLimit, upMovies}}>
+      <Context.Provider value={{latestMovies,setLimit, upMovies, allMovies, setAllMovies}}>
     <Routes>
         <Route path="/" element={<Layout/>}>
           <Route path="/" element={<Home/>}/>
@@ -40,6 +42,7 @@ function App() {
           <Route path="/movies/:id" element={<MoviesInfo/>}/>
           <Route path="/latest/:id" element={<LatestInfo/>}/>
           <Route path="/upcoming/:id" element={<UpcomingInfo/>}/>
+          <Route path="/allmovies/:id" element={<AllMoviesInfo/>}/>
         </Route>
     </Routes>
       </Context.Provider>
