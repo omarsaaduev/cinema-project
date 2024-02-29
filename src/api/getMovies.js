@@ -7,7 +7,7 @@ const key5 = 'QHX64K3-CYF4S18-QF2S9NP-W54QB83';
 
 const options = {
     method: 'GET',
-    headers: {accept: 'application/json', 'X-API-KEY': key1}
+    headers: {accept: 'application/json', 'X-API-KEY': key3}
   };
 
   export const getData = async (query) =>{

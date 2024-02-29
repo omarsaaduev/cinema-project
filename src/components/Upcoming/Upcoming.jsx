@@ -1,20 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useContext} from 'react';
 import './Upcoming.scss'
-import { getData } from '../../api/getMovies';
 import { Slider } from '../Slider/Slider';
+import { Context } from '../../context/context';
 export default function Upcoming() {
-  const [upMovies, setUpMovies] = useState([])
+  const {upMovies} = useContext(Context)
   const images = upMovies.map((upMovie) => (
     upMovie.poster.url && upMovie.poster.url
   )).filter(url => url !=null)
-  console.log(images)
-  useEffect(() => {
-    const fetchMovies = async (limit=55) => {
-      const response = await getData(`year=2024&limit=${limit}&page=4`);
-      setUpMovies(response.docs)
-    }
-    fetchMovies()
-  },[]);
+  console.log(upMovies)
+
   return (
     <section className='upcoming'>
         <div className="container">

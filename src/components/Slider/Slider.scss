@@ -9,7 +9,13 @@
   gap: 40px;
 }
 
-.image-slider img {
-  flex-shrink: 0;
+.upImage {
+  width: 100%;
+  height: 100%;
+}
+
+.upLink {
   width: 280px;
+  display: block;
+  flex-shrink: 0;
 }

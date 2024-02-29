@@ -1,6 +1,6 @@
-
 import { useEffect, useRef, useState } from 'react';
 import './Slider.scss'; 
+import { Link } from 'react-router-dom';
 
 export const Slider = ({images}) => {
   
@@ -32,10 +32,12 @@ export const Slider = ({images}) => {
     <div className="image-slider-container" ref={containerRef}>
       <div className="image-slider" style={{ transform: `translateX(${-scrollLeft}px)` }}>
         {images.map((image, index) => (
-          <img key={index} src={image} alt={`Изображение ${index + 1}`} />
+          <Link className='upLink'   key={index} to={`/upcoming/${index+1}`}>
+            <img className='upImage'  src={image} alt={`Изображение ${index + 1}`} />
+          </Link>
         ))}
       </div>
-    </div>
+     </div>
   );
 }
 

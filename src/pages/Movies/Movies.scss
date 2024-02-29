@@ -1,33 +1,18 @@
-.latest {
-    font-size: 24px;
-    padding: 60px 0;
+.movies {
+    padding-top: 170px;
     &__title {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        h3 {
-            font-weight: 600;
-            letter-spacing: 0.3px;
-        }
+        font-size: 35px;
+        font-weight: 600;
+    }
+    &__description {
+        font-size: 18px;
+        opacity: 0.7;
+        margin-bottom: 20px;
+    }
+    &__sorting {
         margin-bottom: 45px;
     }
-    &__more {
-        opacity: 0.7;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        cursor: pointer;
-    }
-    &__more:hover {
-        color: rgb(232, 128, 10);
-        opacity: 1;
-        transition: all ease-in-out 0.3s;
-    }
-    &__more:active {
-        color: rgb(248, 6, 6);
-        transition: all 0.3s ease;
-    }
-    &__wrappers {
+    &__wrapper {
         display: flex;
         flex-wrap: wrap;
         column-gap: 85px;
