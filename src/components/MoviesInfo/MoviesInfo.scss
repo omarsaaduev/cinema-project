@@ -30,7 +30,10 @@
     }
     &__genres {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
+        line-height: 1;
+        margin-bottom: 10px;
         gap: 15px;
         span {
             font-size: 17px;

@@ -39,7 +39,8 @@ export default function Movies() {
             </Link>
           ))}
         </div>
-        {<div onClick={() => setLimit(prev => prev+40)} className="movies__dop-btn">Показать еще...</div>}
+        {allMovies.length > 0? <div onClick={() => setLimit(prev => prev+40)} className="movies__dop-btn">Показать еще...</div> :
+        <div className="movies__dop-btn">Фильмов не найдено...</div>}
         
       </div>
     </section>

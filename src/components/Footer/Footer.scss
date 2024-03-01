@@ -30,6 +30,12 @@
             color: white;
         }
     }
+    &__info li a {
+        transition: all ease-in-out 0.3s;
+    }
+    &__info li a:hover {
+        color: rgb(211, 9, 9);
+    }
     &__info li::before {
         content: url("/src/assets/icons/arrow.svg");
         margin-right: 15px;

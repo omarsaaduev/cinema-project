@@ -14,13 +14,14 @@
 
 .header__nav {
     display: flex;
+    align-items: center;
     gap: 31px;
     li {
         display: inline-block;
         a {
             color: rgb(255, 255, 255);
             font-family: "Poppins";
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 500;
         }
     }
@@ -30,4 +31,7 @@
     a {
         color: rgb(251, 19, 81);
     }
+}
+
+.active__btn {
 }

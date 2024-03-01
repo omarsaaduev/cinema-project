@@ -12,7 +12,7 @@ export default function Movie() {
 
     useEffect(() => {
         const fetchMovies = async () => {
-          const response = await getData('rating.imdb=7-10&limit=30');
+          const response = await getData('?rating.imdb=7-10&limit=30');
           setMovies(response.docs)
         }
         fetchMovies()

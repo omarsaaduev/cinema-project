@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Footer.scss";
 export default function Footer() {
   return (
@@ -32,23 +33,23 @@ export default function Footer() {
             <div className="footer__company">
               <h4 className="footer__title">Company</h4>
               <ul>
-                <li><a href="">What We Do</a></li>
-                <li><a href="">Our Core Values</a></li>
-                <li><a href="">Services</a></li>
-                <li><a href="">Testimonials</a></li>
-                <li><a href="">Recent News</a></li>
-                <li><a href="">Contact Us</a></li>
+                <li><Link to="/progressus">What We Do</Link></li>
+                <li><Link to="">Our Core Values</Link></li>
+                <li><Link to="">Services</Link></li>
+                <li><Link to="">Testimonials</Link></li>
+                <li><Link to="">Recent News</Link></li>
+                <li><Link to="">Contact Us</Link></li>
               </ul>
             </div>
             <div className="footer__useful">
               <h4 className="footer__title">Useful</h4>
               <ul>
-                <li><a href="">Support</a></li>
-                <li><a href="">FAQ</a></li>
-                <li><a href="">Live chat</a></li>
-                <li><a href="">Privacy Policy</a></li>
-                <li><a href="">Terms of use</a></li>
-                <li><a href="">Sitemap</a></li>
+                <li><Link to="">Support</Link></li>
+                <li><Link to="">FAQ</Link></li>
+                <li><Link to="">Live chat</Link></li>
+                <li><Link to="">Privacy Policy</Link></li>
+                <li><Link to="">Terms of use</Link></li>
+                <li><Link to="">Sitemap</Link></li>
               </ul>
             </div>
           </div>

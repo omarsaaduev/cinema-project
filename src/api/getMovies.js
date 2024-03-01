@@ -7,11 +7,11 @@ const key5 = 'QHX64K3-CYF4S18-QF2S9NP-W54QB83';
 
 const options = {
     method: 'GET',
-    headers: {accept: 'application/json', 'X-API-KEY': key4}
+    headers: {accept: 'application/json', 'X-API-KEY': key1}
   };
 
   export const getData = async (query) =>{
-    const response = await fetch(`https://api.kinopoisk.dev/v1.4/movie?${query}`, options);
+    const response = await fetch(`https://api.kinopoisk.dev/v1.4/movie${query}`, options);
     const json = await response.json()
     return json
     // fetch(`https://api.kinopoisk.dev/v1.4/${url}`, options)

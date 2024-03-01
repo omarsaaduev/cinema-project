@@ -1,0 +1,31 @@
+.search {
+    padding-top: 170px;
+    &__title {
+        font-size: 38px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    &__input {
+        position: relative;
+    }
+    input {
+        width: 100%;
+        margin-bottom: 25px;
+        color: white;
+        border-bottom: 2px solid white;
+        padding-bottom: 10px;
+        font-size: 20px;
+        transition: all ease-in-out 0.3s;
+        padding-left: 50px;
+    }
+    input:focus {
+        border-bottom: 2px solid rgb(177, 8, 8);
+    }
+    &__input:before {
+        content: url("/src/assets/icons/search.svg");
+        width: 30px;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}

@@ -23,6 +23,12 @@ const Header = () => {
                   <Link to='/about'>About Us</Link>
                 </li>
                 <li><a href="#">Contact Us</a></li>
+                <li className={activeLink==='search'? 'active': ''} onClick={() => setAktiveLink('search')}><Link to={'/search'}>
+                    {activeLink==='search'?
+                    <img src="src\assets\icons\search-active.svg" alt="search" />:
+                    <img src="src\assets\icons\search.svg" alt="search" />}
+                  </Link>
+                </li>
             </ul>
             </div>
         </div>

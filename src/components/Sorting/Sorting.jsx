@@ -12,7 +12,7 @@ const Sorting = ({setAllMovies, limit, setLimit}) => {
   useEffect(() => {
 
     const fetchMovies = async () => {
-      const response = await getData(`limit=${limit}&${selectedRaiting}&${selectedGener}&${selectedCountry}&${selectedYear}`)
+      const response = await getData(`?limit=${limit}&${selectedRaiting}&${selectedGener}&${selectedCountry}&${selectedYear}`)
       setAllMovies(response.docs)
     }
     fetchMovies()
