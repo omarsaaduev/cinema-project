@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Layout from "./components/Layout/Layout";
 import About from "./pages/AboutPage/About";
@@ -12,13 +12,16 @@ import Movies from "./pages/Movies/Movies";
 import AllMoviesInfo from "./components/AllMoviesInfo/AllMoviesInfo";
 import Search from "./components/Search/Search";
 import Progressus from "./components/Progressus/Progressus";
+import AuthLayout from "./components/AuthLayout/AuthLayout";
+import SignUp from "./components/Auth/SignUp/SignUp";
+import AuthDetails from "./components/Auth/AuthDetails/AuthDetails";
 
 function App() {
   const [latestMovies, setLatestMovies] = useState([]);
   const [upMovies, setUpMovies] = useState([])
   const [allMovies, setAllMovies] = useState([]);
   const [limit,setLimit] = useState(8)
-  const location = useLocation()
+
   useEffect(() => {
     const fetchMovies = async (limit) => {
       const response = await getData(`?year=2023&limit=${limit}`);
@@ -33,8 +36,8 @@ function App() {
     }
     fetchUpMovies()
 
-    window.scrollTo(0,0)
-  },[limit, location]);
+    
+  },[limit]);
    
   return (
     <>
@@ -50,6 +53,11 @@ function App() {
           <Route path="/allmovies/:id" element={<AllMoviesInfo/>}/>
           <Route path="/search" element={<Search/>}/>
           <Route path="/progressus" element={<Progressus/>}/>
+          <Route path="/auth" element={<AuthLayout/>}>
+            <Route path="/auth" element={<AuthDetails/>}/>
+            <Route path="/auth/signup" element={<SignUp/>}/>
+            
+          </Route>
         </Route>
     </Routes>
       </Context.Provider>
