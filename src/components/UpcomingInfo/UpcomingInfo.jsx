@@ -5,7 +5,7 @@ import { Context } from "../../context/context";
 export default function LatestInfo() {
   const { id } = useParams();
   const {upMovies} = useContext(Context)
-  const currentMovie = upMovies[id];
+  const currentMovie = upMovies[id-1];
 
   return (
     currentMovie &&

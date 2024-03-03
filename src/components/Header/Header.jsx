@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import './Header.scss'
-import { useState } from 'react'
+import { useContext } from 'react'
+import { Context } from '../../context/context'
 const Header = () => {
-  const [activeLink, setAktiveLink] = useState('home');
+  const {activeLink, setAktiveLink} = useContext(Context)
   
   return (
     <header className='header' >

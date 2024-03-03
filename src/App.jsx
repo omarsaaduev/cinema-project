@@ -21,6 +21,7 @@ function App() {
   const [upMovies, setUpMovies] = useState([])
   const [allMovies, setAllMovies] = useState([]);
   const [limit,setLimit] = useState(8)
+  const [activeLink, setAktiveLink] = useState('home');
 
   useEffect(() => {
     const fetchMovies = async (limit) => {
@@ -31,7 +32,7 @@ function App() {
 
 
     const fetchUpMovies = async () => {
-      const response = await getData(`?year=2024&limit=${25}&page=4`);
+      const response = await getData(`?year=2024&limit=${35}&page=1`);
       setUpMovies(response.docs)
     }
     fetchUpMovies()
@@ -41,7 +42,7 @@ function App() {
    
   return (
     <>
-      <Context.Provider value={{latestMovies,setLimit, upMovies, allMovies, setAllMovies}}>
+      <Context.Provider value={{latestMovies,setLimit, upMovies, allMovies, setAllMovies, activeLink,setAktiveLink}}>
     <Routes>
         <Route path="/" element={<Layout/>}>
           <Route path="/" element={<Home/>}/>
