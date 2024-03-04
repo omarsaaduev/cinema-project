@@ -15,7 +15,7 @@ import Progressus from "./components/Progressus/Progressus";
 import AuthLayout from "./components/AuthLayout/AuthLayout";
 import SignUp from "./components/Auth/SignUp/SignUp";
 import AuthDetails from "./components/Auth/AuthDetails/AuthDetails";
-import Drawer from "./components/Drawer/Drawer.jsx";
+import Drawer from "./pages/Drawer/Drawer.jsx";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import PrivateRoute from "./utils/router/PrivateRoute.jsx";

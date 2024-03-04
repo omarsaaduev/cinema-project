@@ -1,8 +1,8 @@
 import  { useRef, useState } from 'react';
 import { getData } from '../../api/getMovies';
-import { Link } from 'react-router-dom';
 import { formatMovieLength } from '../../utils/formatMovieLength';
 import './Search.scss'
+import Skeleton from '../Skeleton/Skeleton';
 
 const Search = () => {
     const [inputValue, setInputValue] = useState('');
@@ -38,7 +38,7 @@ const Search = () => {
             <div className="search__title">Поиск</div>
             <div className="search__input"><input type="text" value={inputValue} onChange={handleSearch} placeholder="Введите название фильма" /></div>
             <div className="movies__wrapper">
-          {filteredResults?.map((item,index) => (
+          {filteredResults.length> 0? filteredResults?.map((item,index) => (
             
              <div key={index} className="movies__item" >
               <img 
@@ -51,7 +51,7 @@ const Search = () => {
               </p>
             </div>
             
-          ))}
+          )) : inputValue && <Skeleton/>}
         </div>
             </div>
         </div>

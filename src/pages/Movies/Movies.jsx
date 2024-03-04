@@ -5,6 +5,7 @@ import "./Movies.scss";
 import { formatMovieLength } from "../../utils/formatMovieLength";
 import { Context } from "../../context/context";
 import { Link } from "react-router-dom";
+import Skeleton from "../../components/Skeleton/Skeleton";
 export default function Movies() {
   // const [movies, setMovies] = useState([]);
   const {allMovies, setAllMovies} = useContext(Context);
@@ -24,7 +25,7 @@ export default function Movies() {
           </div>
         </div>
         <div className="movies__wrapper">
-          {allMovies.map((item,index) => (
+          {allMovies.length > 0? (allMovies.map((item,index) => (
             <Link to={`/allmovies/${index +1 }`} key={item}>
              <div className="movies__item" >
               <img 
@@ -37,7 +38,9 @@ export default function Movies() {
               </p>
             </div>
             </Link>
-          ))}
+          ))) : 
+          <Skeleton/>}
+           
         </div>
         {allMovies.length > 0? <div onClick={() => setLimit(prev => prev+40)} className="movies__dop-btn">Показать еще...</div> :
         <div className="movies__dop-btn">Фильмов не найдено...</div>}
