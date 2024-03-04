@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import "./MoviesInfo.scss";
 import { useEffect, useState } from "react";
 import { getData } from "../../api/getMovies";
@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addMovie, removeMovie } from "../../redux/movieSlice";
 export default function MoviesInfo() {
   const { id } = useParams();
+  const {pathname} = useLocation();
   const [movies, setMovies] = useState([]);
   const currentMovie = movies[id - 1];
   const dispatch = useDispatch();
@@ -19,6 +20,10 @@ function handleAdd(){
 function handleRemove(){
   dispatch(removeMovie(currentMovie))
 }
+
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, [pathname]);
 
   useEffect(() => {
     const fetchMovies = async () => {

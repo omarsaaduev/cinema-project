@@ -1,11 +1,12 @@
-import { useParams } from "react-router-dom";
-import { useContext} from "react";
+import { useLocation, useParams } from "react-router-dom";
+import { useContext, useEffect} from "react";
 import { formatMovieLength } from "../../utils/formatMovieLength";
 import { Context } from "../../context/context";
 import { useDispatch, useSelector } from "react-redux";
 import { addMovie, removeMovie } from "../../redux/movieSlice";
 export default function LatestInfo() {
   const { id } = useParams();
+  const { pathname } = useLocation();
   const {upMovies} = useContext(Context)
   const currentMovie = upMovies[id-1];
   const dispatch = useDispatch();
@@ -18,6 +19,11 @@ function handleAdd(){
 function handleRemove(){
   dispatch(removeMovie(currentMovie))
 }
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     currentMovie &&

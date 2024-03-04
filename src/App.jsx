@@ -18,13 +18,14 @@ import AuthDetails from "./components/Auth/AuthDetails/AuthDetails";
 import Drawer from "./components/Drawer/Drawer.jsx";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import PrivateRoute from "./utils/router/PrivateRoute.jsx";
 
 function App() {
   const [latestMovies, setLatestMovies] = useState([]);
   const [upMovies, setUpMovies] = useState([])
   const [allMovies, setAllMovies] = useState([]);
   const [limit,setLimit] = useState(8)
-  const [activeLink, setAktiveLink] = useState('home');
+  const [authUser, setAuthUser] = useState(null);
 
 
   useEffect(() => {
@@ -47,7 +48,7 @@ function App() {
   return (
     <>
     <Provider store={store}>
-      <Context.Provider value={{latestMovies,setLimit, upMovies, allMovies, setAllMovies, activeLink,setAktiveLink}}>
+      <Context.Provider value={{latestMovies,setLimit, upMovies, allMovies, setAllMovies, authUser, setAuthUser}}>
     <Routes>
         <Route path="/" element={<Layout/>}>
           <Route path="/" element={<Home/>}/>
@@ -58,12 +59,14 @@ function App() {
           <Route path="/upcoming/:id" element={<UpcomingInfo/>}/>
           <Route path="/allmovies/:id" element={<AllMoviesInfo/>}/>
           <Route path="/search" element={<Search/>}/>
-          <Route path="/drawer" element={<Drawer/>}/>
+  
           <Route path="/progressus" element={<Progressus/>}/>
           <Route path="/auth" element={<AuthLayout/>}>
             <Route path="/auth" element={<AuthDetails/>}/>
             <Route path="/auth/signup" element={<SignUp/>}/>
-            
+          </Route>
+          <Route element={<PrivateRoute/>}>
+            <Route path="/drawer" element={<Drawer/>}/>
           </Route>
         </Route>
     </Routes>

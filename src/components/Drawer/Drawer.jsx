@@ -3,13 +3,14 @@ import './Drawer.scss'
 import { removeMovie } from '../../redux/movieSlice';
 import { formatMovieLength } from '../../utils/formatMovieLength';
 
+
 const Drawer = () => {
   const savedMovies = useSelector(state => state.savedMovies);
   const dispatch = useDispatch();
-
   function handleRemove(movie){
     dispatch(removeMovie(movie))
   }
+
 
   return (
     <div className='drawer'>

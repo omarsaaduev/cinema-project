@@ -1,41 +1,38 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import './Header.scss'
-import { useContext } from 'react'
-import { Context } from '../../context/context'
 const Header = () => {
-  const {activeLink, setAktiveLink} = useContext(Context)
+  const {pathname} = useLocation();
   
   return (
     <header className='header' >
         <div className="container">
             <div className="header__top">
-            <Link to='/' className="header-top__logo" onClick={() => setAktiveLink('home')}>
+            <Link to='/' className="header-top__logo" >
                 <img src="src\assets\images\logo.png" alt="logo" />
             </Link>
             <ul className="header__nav">
-                <li className={activeLink==='home'? 'active': ''} onClick={() => setAktiveLink('home')}>
-                  <Link to='/'>Home</Link>
+                <li className={pathname==='/'? 'active': ''} >
+                  <Link to='/'>Главная</Link>
                 </li>
-                <li className={activeLink==='movies'? 'active': ''} onClick={() => setAktiveLink('movies')}>
-                  <Link to="/movies">Movies</Link>
+                <li className={pathname==='/movies'? 'active': ''} >
+                  <Link to="/movies">Фильмы</Link>
                 </li>
-                <li><a href="#">Production</a></li>
-                <li className={activeLink==='about'? 'active': ''} onClick={() => setAktiveLink('about')}>
-                  <Link to='/about'>About Us</Link>
+                <li className={pathname==='/about'? 'active': ''} >
+                  <Link to='/about'>О Компании</Link>
                 </li>
-                <li className={activeLink==='drawer'? 'active': ''} onClick={() => setAktiveLink('drawer')}><Link to="/drawer">Drawer</Link></li>
+                <li className={pathname==='/drawer'? 'active': ''} ><Link to="/drawer">Смотреть позже</Link></li>
             </ul>
             <div className="header__profile">
-            <li onClick={() => setAktiveLink('search')}>
+            <li >
                   <Link to={'/search'}>
-                    {activeLink==='search'?
+                    {pathname==='/search'?
                     <img src="src\assets\icons\search-active.svg" alt="search" />:
                     <img src="src\assets\icons\search.svg" alt="search" />}
                   </Link>
                 </li>
-                <li onClick={() => setAktiveLink('user')}>
+                <li>
                   <Link to='/auth'>
-                  {activeLink==='user'? 
+                  {pathname==='/auth'? 
                   <img src="src\assets\icons\user-active.svg" alt="user" />:
                   <img src="src\assets\icons\user.svg" alt="user" />
                   }
