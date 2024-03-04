@@ -3,10 +3,22 @@ import "./MoviesInfo.scss";
 import { useEffect, useState } from "react";
 import { getData } from "../../api/getMovies";
 import { formatMovieLength } from "../../utils/formatMovieLength";
+import { useDispatch, useSelector } from "react-redux";
+import { addMovie, removeMovie } from "../../redux/movieSlice";
 export default function MoviesInfo() {
   const { id } = useParams();
   const [movies, setMovies] = useState([]);
   const currentMovie = movies[id - 1];
+  const dispatch = useDispatch();
+  const savedMovies = useSelector(state => state.savedMovies);
+  const isAdd = savedMovies.some(movie => movie.name === currentMovie?.name)
+
+function handleAdd(){
+  dispatch(addMovie(currentMovie))
+}
+function handleRemove(){
+  dispatch(removeMovie(currentMovie))
+}
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -41,6 +53,7 @@ export default function MoviesInfo() {
                       ))}
                     </div>
                     <p>{currentMovie.description}</p>
+                    <button className="movie__added" onClick={isAdd? handleRemove : handleAdd}>{isAdd? 'Удалить' : 'Буду смотреть'}</button>
                     
         </div>
         <div className="movies-info__distributions">

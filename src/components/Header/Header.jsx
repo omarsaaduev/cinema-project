@@ -23,7 +23,7 @@ const Header = () => {
                 <li className={activeLink==='about'? 'active': ''} onClick={() => setAktiveLink('about')}>
                   <Link to='/about'>About Us</Link>
                 </li>
-                <li><a href="#">Contact Us</a></li>
+                <li className={activeLink==='drawer'? 'active': ''} onClick={() => setAktiveLink('drawer')}><Link to="/drawer">Drawer</Link></li>
             </ul>
             <div className="header__profile">
             <li onClick={() => setAktiveLink('search')}>

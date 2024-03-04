@@ -2,10 +2,24 @@ import { useParams } from "react-router-dom";
 import { formatMovieLength } from "../../utils/formatMovieLength";
 import { useContext } from "react";
 import { Context } from "../../context/context";
+import { useDispatch, useSelector } from "react-redux";
+import { addMovie, removeMovie } from "../../redux/movieSlice";
 export default function AllMoviesInfo() {
   const { id } = useParams();
   const {allMovies}= useContext(Context)
   const currentMovie = allMovies[id - 1];
+  const dispatch = useDispatch();
+  const savedMovies = useSelector(state => state.savedMovies);
+  const isAdd = savedMovies.some(movie => movie.name === currentMovie?.name)
+
+function handleAdd(){
+  dispatch(addMovie(currentMovie))
+}
+function handleRemove(){
+  dispatch(removeMovie(currentMovie))
+
+}
+
 
   return (
     currentMovie &&
@@ -33,6 +47,7 @@ export default function AllMoviesInfo() {
                       ))}
                     </div>
                     <p>{currentMovie.description}</p>
+                    <button className="movie__added" onClick={isAdd? handleRemove : handleAdd}>{isAdd? 'Удалить' : 'Буду смотреть'}</button>
                     
         </div>
         <div className="movies-info__distributions">

@@ -15,6 +15,9 @@ import Progressus from "./components/Progressus/Progressus";
 import AuthLayout from "./components/AuthLayout/AuthLayout";
 import SignUp from "./components/Auth/SignUp/SignUp";
 import AuthDetails from "./components/Auth/AuthDetails/AuthDetails";
+import Drawer from "./components/Drawer/Drawer.jsx";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 function App() {
   const [latestMovies, setLatestMovies] = useState([]);
@@ -22,6 +25,7 @@ function App() {
   const [allMovies, setAllMovies] = useState([]);
   const [limit,setLimit] = useState(8)
   const [activeLink, setAktiveLink] = useState('home');
+
 
   useEffect(() => {
     const fetchMovies = async (limit) => {
@@ -42,6 +46,7 @@ function App() {
    
   return (
     <>
+    <Provider store={store}>
       <Context.Provider value={{latestMovies,setLimit, upMovies, allMovies, setAllMovies, activeLink,setAktiveLink}}>
     <Routes>
         <Route path="/" element={<Layout/>}>
@@ -53,6 +58,7 @@ function App() {
           <Route path="/upcoming/:id" element={<UpcomingInfo/>}/>
           <Route path="/allmovies/:id" element={<AllMoviesInfo/>}/>
           <Route path="/search" element={<Search/>}/>
+          <Route path="/drawer" element={<Drawer/>}/>
           <Route path="/progressus" element={<Progressus/>}/>
           <Route path="/auth" element={<AuthLayout/>}>
             <Route path="/auth" element={<AuthDetails/>}/>
@@ -62,6 +68,7 @@ function App() {
         </Route>
     </Routes>
       </Context.Provider>
+      </Provider>
     </>
   )
 }

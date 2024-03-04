@@ -28,7 +28,7 @@ const Search = () => {
 
     };
 
-    const filteredResults = results.filter(item => 
+    const filteredResults = results?.filter(item => 
         item?.name.toLowerCase().includes(inputValue.toLowerCase())
     )
 
@@ -39,8 +39,8 @@ const Search = () => {
             <div className="search__input"><input type="text" value={inputValue} onChange={handleSearch} placeholder="Введите название фильма" /></div>
             <div className="movies__wrapper">
           {filteredResults?.map((item,index) => (
-            <Link to={`/allmovies/${index +1 }`} key={item}>
-             <div className="movies__item" >
+            
+             <div key={index} className="movies__item" >
               <img 
                 src={item.poster.url || item.backdrop.url} 
                 alt="movies" />
@@ -50,7 +50,7 @@ const Search = () => {
                 <span>{item.genres[0]?.name}</span>
               </p>
             </div>
-            </Link>
+            
           ))}
         </div>
             </div>
