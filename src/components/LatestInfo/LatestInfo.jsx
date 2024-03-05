@@ -11,11 +11,11 @@ export default function LatestInfo() {
   const { pathname } = useLocation();
   const {latestMovies} = useContext(Context)
   const currentMovie = latestMovies[id - 1];
-  const [videoUrl, setVideoUrl] = useState();
   const dispatch = useDispatch();
   const savedMovies = useSelector(state => state.savedMovies);
   const isAdd = savedMovies.some(movie => movie.name === currentMovie?.name)
-
+  
+  const [videoUrl, setVideoUrl] = useState();
   const parts = videoUrl?.split('/'); // Разделяем URL по слэшу
   const videoId =  parts && parts[parts.length - 1]; // Берем последнюю часть, которая является id видео
 
