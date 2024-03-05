@@ -1,17 +1,24 @@
 import { useLocation, useParams } from "react-router-dom";
-import { useContext, useEffect} from "react";
+import { useContext, useEffect, useState} from "react";
 import { formatMovieLength } from "../../utils/formatMovieLength";
 import { Context } from "../../context/context";
 import { useDispatch, useSelector } from "react-redux";
 import { addMovie, removeMovie } from "../../redux/movieSlice";
+import { getData } from "../../api/getMovies";
+import VideoPlayer from "../Player/VideoPlayer";
 export default function LatestInfo() {
   const { id } = useParams();
   const { pathname } = useLocation();
   const {latestMovies} = useContext(Context)
   const currentMovie = latestMovies[id - 1];
+  const [videoUrl, setVideoUrl] = useState();
   const dispatch = useDispatch();
   const savedMovies = useSelector(state => state.savedMovies);
   const isAdd = savedMovies.some(movie => movie.name === currentMovie?.name)
+
+  const parts = videoUrl?.split('/'); // Разделяем URL по слэшу
+  const videoId =  parts && parts[parts.length - 1]; // Берем последнюю часть, которая является id видео
+
 
 function handleAdd(){
   dispatch(addMovie(currentMovie))
@@ -21,11 +28,16 @@ function handleRemove(){
 }
 
 
-
   useEffect(() => {
+    const fetchMovies = async () => {
+      const response = await getData(`?id=${currentMovie?.id}&selectFields=videos`);
+      setVideoUrl(response?.docs[0]?.videos?.trailers[0]?.url)
+    }
+    fetchMovies()
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  console.log(videoUrl)
   return (
     currentMovie &&
     <section className="movies-info">
@@ -69,6 +81,7 @@ function handleRemove(){
           </div>
         </div>
       </div>
+        {currentMovie.id ? <div className="container"><VideoPlayer videoId={videoId}/></div> : ''}
     </section>
   );
 }

@@ -4,7 +4,7 @@ import { formatMovieLength } from "../../utils/formatMovieLength";
 import { Context } from "../../context/context";
 import { useDispatch, useSelector } from "react-redux";
 import { addMovie, removeMovie } from "../../redux/movieSlice";
-export default function LatestInfo() {
+export default function UpcomingInfo() {
   const { id } = useParams();
   const { pathname } = useLocation();
   const {upMovies} = useContext(Context)

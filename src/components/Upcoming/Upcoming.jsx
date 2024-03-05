@@ -7,7 +7,6 @@ export default function Upcoming() {
   const images = upMovies.map((upMovie) => (
     upMovie.poster.url && upMovie.poster.url
   )).filter(url => url !=null)
-  console.log(upMovies)
 
   return (
     <section className='upcoming'>
