@@ -1,3 +1,4 @@
+@import "./../../styles/base/mixins.scss";
 .footer {
     position: relative;
     padding-top: 100px;
@@ -9,13 +10,23 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 20px;
+        @include _desktop {
+            flex-wrap: wrap;
+            gap: 25px;
+        }
     }
     &__about {
         display: flex;
         width: 60%;
+        @include _desktop {
+            width: 100%;
+        }
     }
     &__map {
         height: 200px;
+        @include _desktop {
+            display: none;
+        }
     }
     &__info {
         display: flex;
@@ -32,6 +43,9 @@
     }
     &__info li a {
         transition: all ease-in-out 0.3s;
+        @include _mobile {
+            font-size: 14px;
+        }
     }
     &__info li a:hover {
         color: rgb(211, 9, 9);

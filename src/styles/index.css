@@ -2,5 +2,6 @@
 
 @import "./base/reset.scss";
 @import "./base/overall.scss";
+@import "./base/mixins.scss";
 
 

@@ -1,7 +1,11 @@
 import { Link, useLocation } from 'react-router-dom'
 import './Header.scss'
+import { useContext } from 'react';
+import { Context } from '../../context/context';
+import Menu from '../Menu/Menu';
 const Header = () => {
   const {pathname} = useLocation();
+  const {openMenu, setOpenMenu} = useContext(Context)
   
   return (
     <header className='header' >
@@ -38,6 +42,10 @@ const Header = () => {
                   }
                   </Link>
                 </li>
+                <li onClick={() => setOpenMenu(true)} className='header__burger'>
+                  <img src="src\assets\icons\burger.svg" alt="burger" />
+                </li>
+                  {openMenu && <Menu/>}
             </div>
             </div>
         </div>

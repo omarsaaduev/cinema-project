@@ -10,7 +10,7 @@ export default function About() {
             <p>Quis aliqua sunt nisi consectetur anim ullamco ea. Ut deserunt non voluptate nisiQuis aliqua sunt nisi</p>
             <br />
             <p>Quis aliqua sunt nisi consectetur anim ullamco ea. Ut deserunt non voluptate nisi sit elit exercitation eu Lorem. Mollit occaecat nisi occaecat fugiat ullamco. Pariatur excepteur qui dolore. Quis aliqua sunt nisi consectetur anim ullamco ea. Quis aliqua sunt nisi consectetur anim ullamco eaollit occaecat nisi occaecat fugiat ullamco.</p>
-            <button>Read more</button>
+            {/* <button>Read more</button> */}
         </div>
         <div className="about__image">
             <img src="src\assets\images\about-img.png" alt="about-img" />

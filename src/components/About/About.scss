@@ -1,3 +1,4 @@
+@import "./../../styles/base/mixins.scss";
 .about {
     padding-top: 165px;
     background-image: url("/src/assets/images/background-about.png");
@@ -7,6 +8,14 @@
     background-repeat: no-repeat;
     &__title {
         margin-bottom: 145px;
+        @include _desktop {
+            margin-bottom: 80px;
+            font-size: 70px;
+        }
+        @include _mobile {
+            margin-bottom: 50px;
+            font-size: 60px;
+        }
         font-size: 80px;
         font-weight: 600;
         line-height: 120px;
@@ -15,6 +24,10 @@
     }
     &__info {
         display: flex;
+        align-items: center;
+        @include _desktop {
+            flex-direction: column-reverse;
+        }
     }
     &__text-title {
         font-family: Fira Sans;
@@ -23,9 +36,21 @@
         line-height: 1;
         letter-spacing: 0.5%;
         margin-bottom: 40px;
+        @include _desktop {
+            text-align: center;
+        }
+        @include _mobile {
+            font-size: 42px;
+        }
     }
     &__text {
         width: 50%;
+        @include _desktop {
+            width: 100%;
+            br {
+                display: none;
+            }
+        }
         p {
             width: 80%;
             left: 97px;
@@ -33,6 +58,9 @@
             font-size: 20px;
             line-height: 150%;
             opacity: 0.7;
+            @include _desktop {
+                width: 100%;
+            }
         }
         button {
             background: rgb(8, 75, 153);
@@ -41,6 +69,13 @@
             font-size: 16px;
             font-weight: 600;
             margin-top: 70px;
+        }
+    }
+    &__image {
+        max-width: 600px;
+        @include _desktop {
+            max-width: 100%;
+            margin-bottom: 40px;
         }
     }
 }

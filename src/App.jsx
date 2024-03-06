@@ -26,6 +26,7 @@ function App() {
   const [allMovies, setAllMovies] = useState([]);
   const [limit,setLimit] = useState(8)
   const [authUser, setAuthUser] = useState(null);
+  const[openMenu, setOpenMenu] = useState(false)
 
 
   useEffect(() => {
@@ -43,12 +44,12 @@ function App() {
     fetchUpMovies()
 
     
-  },[limit]);
+  },[limit,upMovies]);
    
   return (
     <>
     <Provider store={store}>
-      <Context.Provider value={{latestMovies,setLimit, upMovies, allMovies, setAllMovies, authUser, setAuthUser}}>
+      <Context.Provider value={{latestMovies,setLimit, upMovies, allMovies, setAllMovies, authUser, setAuthUser,openMenu,setOpenMenu}}>
     <Routes>
         <Route path="/" element={<Layout/>}>
           <Route path="/" element={<Home/>}/>

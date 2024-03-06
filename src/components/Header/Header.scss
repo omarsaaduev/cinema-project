@@ -1,3 +1,4 @@
+@import "./../../styles/base/mixins.scss";
 .header {
     position: absolute;
     width: 100%;
@@ -25,6 +26,9 @@
     display: flex;
     align-items: center;
     gap: 31px;
+    @include _tablet {
+        display: none;
+    }
     li {
         display: inline-block;
         a {
@@ -43,5 +47,10 @@
     }
 }
 
-.active__btn {
+.header__burger {
+    display: none;
+    @include _tablet {
+        display: block;
+        width: 40px;
+    }
 }

@@ -3,7 +3,7 @@ import './Sorting.scss'
 import { getData } from '../../api/getMovies';
 
 
-const Sorting = ({setAllMovies, limit, setLimit}) => {
+const Sorting = ({setAllMovies, limit, setLimit, allMovies}) => {
   const [selectedRaiting, setSelectedRaiting] = useState('');
   const [selectedGener, setSelectedGener] = useState('');
   const [selectedCountry, setSelectedCountry] = useState('');
