@@ -39,6 +39,7 @@ function handleRemove(){
     window.scrollTo(0, 0);
   }, [pathname]);
   console.log(currentMovie)
+  console.log(videoUrl)
 
   return (
     currentMovie &&
@@ -50,7 +51,7 @@ function handleRemove(){
       />
       <div className="container movies-info__wrapper">
         <div className="movie__text">
-                    <div className="movie__name">{currentMovie.name}</div>
+                    <div className="movies-info__name">{currentMovie.name}</div>
                     <div className="movie__dop-info">
                         <div className="movie__pg">pg-{currentMovie.ageRating}</div>
                         <div className="movie__duration">{formatMovieLength(currentMovie.movieLength)}</div>

@@ -1,3 +1,4 @@
+@import "./../../styles/base/mixins.scss";
 .latest {
     font-size: 24px;
     padding: 60px 0;
@@ -8,6 +9,9 @@
         h3 {
             font-weight: 600;
             letter-spacing: 0.3px;
+            @include _mobile {
+                font-size: 20px;
+            }
         }
         margin-bottom: 45px;
     }
@@ -32,6 +36,13 @@
         flex-wrap: wrap;
         column-gap: 85px;
         row-gap: 54px;
+        @include _large-desktop {
+            column-gap: 65px;
+            justify-content: center;
+        }
+        @include _tablet {
+            column-gap: 25px;
+        }
     }
     &__item {
         transition: transform 0.5s;
@@ -39,6 +50,12 @@
             width: 231px;
             height: 318px;
             margin-bottom: 32px;
+            @include _large-desktop {
+                width: 215px;
+            }
+            @include _mobile {
+                width: 250px;
+            }
         }
         h4 {
             font-size: 22px;

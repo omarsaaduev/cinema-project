@@ -1,3 +1,4 @@
+@import "./../../styles/base/mixins.scss";
 .drawer {
     min-height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1)), url("/src/assets/images/background-about.png");
@@ -10,12 +11,19 @@
         font-size: 40px;
         font-weight: 600;
         margin-bottom: 30px;
+        line-height: 1;
+        @include _mobile {
+            font-size: 30px;
+        }
     }
     &__wrapper {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        gap: 50px;
+        gap: 30px;
+        @include _large-desktop {
+            justify-content: space-evenly;
+        }
     }
     &__item {
         color: #b0afb4;
@@ -79,5 +87,8 @@
     &__desc {
         font-size: 24px;
         color: rgb(203, 196, 196);
+        @include _mobile {
+            font-size: 20px;
+        }
     }
 }

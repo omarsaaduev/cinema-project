@@ -1,3 +1,4 @@
+@import "./../../styles/base/mixins.scss";
 .image-slider-container {
   width: 100%;
   overflow: hidden;
@@ -18,6 +19,15 @@
   display: block;
   flex-shrink: 0;
   transition: transform 0.5s;
+  @include _desktop {
+    width: 250px;
+  }
+  @include _tablet {
+    width: 210px;
+  }
+  @include _phablet {
+    width: 180px;
+  }
 }
 .upLink:hover {
   transform: scale(1.05) translateX(7px) translateY(-7px);

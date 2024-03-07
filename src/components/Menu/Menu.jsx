@@ -30,7 +30,7 @@ export default function Menu() {
                 <li  >
                   <Link onClick={closeMenu} to='/about'>О Компании</Link>
                 </li>
-                <li  ><Link  to="/drawer">Смотреть позже</Link></li>
+                <li  ><Link onClick={closeMenu}  to="/drawer">Смотреть позже</Link></li>
             </ul>
 
             </div>

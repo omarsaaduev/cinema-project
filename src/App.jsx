@@ -36,7 +36,7 @@ function App() {
     }
     fetchMovies(limit)
     const fetchUpMovies = async () => {
-      const response = await getData(`?year=2024&limit=${35}&page=1`);
+      const response = await getData(`?year=2024&limit=${20}&rating=7-10`);
       setUpMovies(response.docs)
     }
     fetchUpMovies()

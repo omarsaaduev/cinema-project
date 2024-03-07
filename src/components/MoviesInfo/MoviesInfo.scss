@@ -1,3 +1,4 @@
+@import "./../../styles/base/mixins.scss";
 .movies-info {
     &__background {
         width: 100%;
@@ -22,6 +23,9 @@
             font-size: 13px;
             margin-bottom: 25px;
         }
+        @include _large-desktop {
+            display: none;
+        }
     }
     &__countries {
         display: flex;
@@ -39,6 +43,44 @@
             font-size: 17px;
             color: #b47825;
             text-transform: uppercase;
+        }
+    }
+    @keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    @keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    &__name {
+        display: block;
+        font-size: 65px;
+        font-weight: 600;
+        letter-spacing: -2px;
+        animation: float 3s infinite;
+        line-height: 1;
+        margin: 40px 0;
+        @include _tablet {
+            font-size: 50px;
+        }
+        @include _mobile {
+            font-size: 40px;
         }
     }
 }

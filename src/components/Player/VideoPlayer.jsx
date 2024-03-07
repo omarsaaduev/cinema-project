@@ -13,8 +13,10 @@ const VideoPlayer = ({videoId}) => {
     };
 
   return (
-    <div className='treyler'>
+    <div className="treyler__wrapper">
+        <div className='treyler'>
       <YouTube videoId={videoId} opts={opts} />
+    </div>
     </div>
   );
 };

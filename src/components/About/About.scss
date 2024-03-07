@@ -13,8 +13,8 @@
             font-size: 70px;
         }
         @include _mobile {
-            margin-bottom: 50px;
-            font-size: 60px;
+            margin-bottom: 0;
+            font-size: 50px;
         }
         font-size: 80px;
         font-weight: 600;
