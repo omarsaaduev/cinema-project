@@ -43,6 +43,7 @@ export default function Movie() {
             </div>
             <div className="movie__info container">
                 <div className="movie__text">
+                    <div className="movie__name">{currentMovie.name}</div>
                     <div className="movie__category">
                         <div>new</div>
                         <span>{currentMovie.top250? `#${currentMovie.top250} in the 250`: 'top 250'}</span>
@@ -57,7 +58,8 @@ export default function Movie() {
                         </div>
                         <div className="movie__year">{currentMovie.year}</div>
                     </div>
-                    <p>{currentMovie.description}</p>
+                    <p className='movie__large-desc'>{currentMovie.description}</p>
+                    <p className='movie__short-desc'>{currentMovie.shortDescription}</p>
                     <Link to={`/movies/${index+1}`}>
                         <div className="movie__btn">
                             <img src="src\assets\icons\play.svg" alt="play" />

@@ -35,16 +35,14 @@ function App() {
       setLatestMovies(response.docs)
     }
     fetchMovies(limit)
-
-
     const fetchUpMovies = async () => {
       const response = await getData(`?year=2024&limit=${35}&page=1`);
       setUpMovies(response.docs)
     }
     fetchUpMovies()
-
     
-  },[limit,upMovies]);
+  },[limit]);
+
    
   return (
     <>

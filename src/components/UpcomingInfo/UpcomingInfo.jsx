@@ -29,12 +29,16 @@ function handleRemove(){
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const response = await getData(`?id=${currentMovie?.id}&selectFields=videos`);
+      const response = await getData(`?id=${currentMovie.id}&selectFields=videos`);
       setVideoUrl(response?.docs[0]?.videos?.trailers[0]?.url)
+      console.log(response)
     }
-    fetchMovies()
+    if(currentMovie?.id){
+      fetchMovies()
+    }
     window.scrollTo(0, 0);
   }, [pathname]);
+  console.log(currentMovie)
 
   return (
     currentMovie &&
