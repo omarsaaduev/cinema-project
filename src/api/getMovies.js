@@ -9,7 +9,7 @@ const key6 = 'APM7GFT-G89MKM7-PPRT5SR-A5H7H6W';
 
 const options = {
     method: 'GET',
-    headers: {accept: 'application/json', 'X-API-KEY': key1}
+    headers: {accept: 'application/json', 'X-API-KEY': key2}
   };
 
   // export const getData = async (query) =>{
