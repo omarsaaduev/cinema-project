@@ -1,12 +1,13 @@
 import { useLocation, useParams } from "react-router-dom";
 import "./MoviesInfo.scss";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { getData } from "../../api/getMovies";
 import { formatMovieLength } from "../../utils/formatMovieLength";
 import { useDispatch, useSelector } from "react-redux";
 import { addMovie, removeMovie } from "../../redux/movieSlice";
-import VideoPlayer from "../Player/VideoPlayer";
-export default function MoviesInfo() {
+import {VideoPlayer} from "../Player/VideoPlayer";
+import { memo } from "react";
+function MoviesInfoComponent() {
   const { id } = useParams();
   const {pathname} = useLocation();
   const [movies, setMovies] = useState([]);
@@ -21,14 +22,16 @@ export default function MoviesInfo() {
 
 
 
-function handleAdd(){
-  dispatch(addMovie(currentMovie))
-}
-function handleRemove(){
-  dispatch(removeMovie(currentMovie))
-}
+  const handleAdd = useCallback(() => {
+    dispatch(addMovie(currentMovie))
+  }, [currentMovie]);
+  
+  const handleRemove = useCallback(() => {
+    dispatch(removeMovie(currentMovie))
+  }, [currentMovie]);
+  
 
-useEffect(() => {
+useMemo(() => {
   const fetchMovies = async () => {
     const response = await getData(`?id=${currentMovie?.id}&selectFields=videos`);
     setVideoUrl(response?.docs[0]?.videos?.trailers[0]?.url)
@@ -90,3 +93,5 @@ useEffect(() => {
     </section>
   );
 }
+
+export const MoviesInfo = memo(MoviesInfoComponent)

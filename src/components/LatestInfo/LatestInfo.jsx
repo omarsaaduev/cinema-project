@@ -5,7 +5,7 @@ import { Context } from "../../context/context";
 import { useDispatch, useSelector } from "react-redux";
 import { addMovie, removeMovie } from "../../redux/movieSlice";
 import { getData } from "../../api/getMovies";
-import VideoPlayer from "../Player/VideoPlayer";
+import {VideoPlayer} from "../Player/VideoPlayer";
 export default function LatestInfo() {
   const { id } = useParams();
   const { pathname } = useLocation();

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Footer.scss";
-export default function Footer() {
+import { memo } from "react";
+ function FooterComponent() {
   return (
     <footer className="footer">
       <div className="container">
@@ -59,3 +60,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export const Footer = memo(FooterComponent)

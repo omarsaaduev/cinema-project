@@ -2,9 +2,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import './Drawer.scss'
 import { removeMovie } from '../../redux/movieSlice';
 import { formatMovieLength } from '../../utils/formatMovieLength';
+import { memo } from 'react';
 
 
-const Drawer = () => {
+const DrawerComponent = () => {
   const savedMovies = useSelector(state => state.savedMovies);
   const dispatch = useDispatch();
   function handleRemove(movie){
@@ -40,5 +41,5 @@ const Drawer = () => {
   );
 };
 
-export default Drawer;
+export const Drawer = memo(DrawerComponent)
 

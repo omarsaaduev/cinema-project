@@ -1,12 +1,12 @@
 import { onAuthStateChanged, signOut } from "firebase/auth"
-import { useContext, useEffect } from "react"
+import { memo, useContext, useEffect } from "react"
 import { auth } from "../../../firebase/firebase";
 import SignIn from "../SignIn/SignIn";
 import './AuthDetails.scss'
 import { Link } from "react-router-dom";
 import { Context } from "../../../context/context";
 
-export default function AuthDetails() {
+function AuthDetailsComponent() {
     const {authUser, setAuthUser} = useContext(Context)
     useEffect(() => {
         const listen = onAuthStateChanged(auth, (user) => {
@@ -41,3 +41,5 @@ export default function AuthDetails() {
     </div>
   )
 }
+
+export const AuthDetails = memo(AuthDetailsComponent)

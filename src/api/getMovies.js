@@ -3,13 +3,13 @@ const key2 = 'XZJSYN8-BSFMV6J-QMSSEDX-C5GPK0T';
 const key3 = 'HHA5MCX-DTTMZC3-HQZ7BS9-MQR0K23';
 const key4 = 'GFWA7Y2-Z1JM3VF-KKNGA4G-7NPBH6C';
 const key5 = 'QHX64K3-CYF4S18-QF2S9NP-W54QB83';
-const key6 = 'APM7GFT-G89MKM7-PPRT5SR-A5H7H6W'
+const key6 = 'APM7GFT-G89MKM7-PPRT5SR-A5H7H6W';
 
 
 
 const options = {
     method: 'GET',
-    headers: {accept: 'application/json', 'X-API-KEY': key6}
+    headers: {accept: 'application/json', 'X-API-KEY': key1}
   };
 
   // export const getData = async (query) =>{

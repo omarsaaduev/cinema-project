@@ -1,10 +1,10 @@
-import { useContext } from 'react';
+import { memo, useContext } from 'react';
 import { formatMovieLength } from '../../utils/formatMovieLength'
 import './Latest.scss'
 import { Link } from 'react-router-dom';
 import { Context } from '../../context/context';
 
-export default function Latest() {
+function LatestComponet() {
   const {setLimit, latestMovies} =useContext(Context)
 
     const handleMoreClick = () => {
@@ -37,3 +37,5 @@ export default function Latest() {
     </section>
   )
 }
+
+export const Latest = memo(LatestComponet)

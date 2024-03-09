@@ -1,6 +1,7 @@
 import YouTube from 'react-youtube';
 import './VideoPlayer.scss';
-const VideoPlayer = ({videoId}) => {
+import { memo } from 'react';
+const VideoPlayerComponent = ({videoId}) => {
     const opts = {
         playerVars: {
             controls: 0, // Скрыть стандартные элементы управления
@@ -21,4 +22,4 @@ const VideoPlayer = ({videoId}) => {
   );
 };
 
-export default VideoPlayer;
+export const VideoPlayer = memo(VideoPlayerComponent);

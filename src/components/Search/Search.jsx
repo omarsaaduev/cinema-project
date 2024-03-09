@@ -1,10 +1,10 @@
-import  { useRef, useState } from 'react';
+import  { memo, useRef, useState } from 'react';
 import { getData } from '../../api/getMovies';
 import { formatMovieLength } from '../../utils/formatMovieLength';
 import './Search.scss'
 import Skeleton from '../Skeleton/Skeleton';
 
-const Search = () => {
+const SearchComponent = () => {
     const [inputValue, setInputValue] = useState('');
     const [results, setResults] = useState([]);
     const debounceTimeoutRef = useRef(null);
@@ -58,4 +58,4 @@ const Search = () => {
     );
 };
 
-export default Search;
+export const Search = memo(SearchComponent)

@@ -1,21 +1,21 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home/Home";
+import {Home} from "./pages/Home/Home";
 import Layout from "./components/Layout/Layout";
-import About from "./pages/AboutPage/About";
-import MoviesInfo from "./components/MoviesInfo/MoviesInfo";
+import {AboutPage} from "./pages/AboutPage/AboutPage.jsx";
+import {MoviesInfo} from "./components/MoviesInfo/MoviesInfo";
 import { Context } from "./context/context";
 import { getData } from "./api/getMovies";
 import { useEffect, useState } from "react";
 import LatestInfo from "./components/LatestInfo/LatestInfo";
 import UpcomingInfo from "./components/UpcomingInfo/UpcomingInfo";
-import Movies from "./pages/Movies/Movies";
+import {Movies} from "./pages/Movies/Movies";
 import AllMoviesInfo from "./components/AllMoviesInfo/AllMoviesInfo";
-import Search from "./components/Search/Search";
+import {Search} from "./components/Search/Search";
 import Progressus from "./components/Progressus/Progressus";
 import AuthLayout from "./components/AuthLayout/AuthLayout";
 import SignUp from "./components/Auth/SignUp/SignUp";
-import AuthDetails from "./components/Auth/AuthDetails/AuthDetails";
-import Drawer from "./pages/Drawer/Drawer.jsx";
+import {AuthDetails} from "./components/Auth/AuthDetails/AuthDetails";
+import {Drawer} from "./pages/Drawer/Drawer.jsx";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import PrivateRoute from "./utils/router/PrivateRoute.jsx";
@@ -53,7 +53,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/movies" element={<Movies/>}/>
           <Route path="/movies/:id" element={<MoviesInfo/>}/>
-          <Route path="/about" element={<About/>}/>
+          <Route path="/about" element={<AboutPage/>}/>
           <Route path="/latest/:id" element={<LatestInfo/>}/>
           <Route path="/upcoming/:id" element={<UpcomingInfo/>}/>
           <Route path="/allmovies/:id" element={<AllMoviesInfo/>}/>

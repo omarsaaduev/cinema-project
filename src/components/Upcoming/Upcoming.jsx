@@ -1,8 +1,8 @@
-import { useContext} from 'react';
+import { memo, useContext} from 'react';
 import './Upcoming.scss'
 import { Slider } from '../Slider/Slider';
 import { Context } from '../../context/context';
-export default function Upcoming() {
+function UpcomingComponent() {
   const {upMovies} = useContext(Context)
   const images = upMovies.map((upMovie) => (
     upMovie.poster.url && upMovie.poster.url
@@ -19,3 +19,5 @@ export default function Upcoming() {
     </section>
   )
 }
+
+export const Upcoming = memo(UpcomingComponent)

@@ -1,12 +1,12 @@
-import { useContext, useState } from "react";
-import Sorting from "../../components/Sorting/Sorting";
+import { memo, useContext, useState } from "react";
+import {Sorting} from "../../components/Sorting/Sorting";
 
 import "./Movies.scss";
 import { formatMovieLength } from "../../utils/formatMovieLength";
 import { Context } from "../../context/context";
 import { Link } from "react-router-dom";
 import Skeleton from "../../components/Skeleton/Skeleton";
-export default function Movies() {
+function MoviesComponent() {
   // const [movies, setMovies] = useState([]);
   const {allMovies, setAllMovies} = useContext(Context);
   const [limit, setLimit] = useState(40);
@@ -49,3 +49,5 @@ export default function Movies() {
     </section>
   );
 }
+
+export const Movies = memo(MoviesComponent)

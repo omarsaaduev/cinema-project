@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import './Sorting.scss'
 import { getData } from '../../api/getMovies';
 
 
-const Sorting = ({setAllMovies, limit, setLimit, allMovies}) => {
+const SortingComponent = ({setAllMovies, limit, setLimit, allMovies}) => {
   const [selectedRaiting, setSelectedRaiting] = useState('');
   const [selectedGener, setSelectedGener] = useState('');
   const [selectedCountry, setSelectedCountry] = useState('');
@@ -19,21 +19,21 @@ const Sorting = ({setAllMovies, limit, setLimit, allMovies}) => {
   },[selectedRaiting, selectedGener, selectedCountry, selectedYear,limit]);
 
 
-  const handleRaitingChange = (event) => {
+  const handleRaitingChange = useCallback((event) => {
     setSelectedRaiting(event.target.value);
-    
+  }, [setSelectedRaiting]);
 
-  };
-  
-  const handleGenerChange = (event) => {
+  const handleGenerChange = useCallback((event) => {
     setSelectedGener(event.target.value);
-  };
-  const handleCountryChange = (event) => {
+  }, [setSelectedGener]);
+
+  const handleCountryChange = useCallback((event) => {
     setSelectedCountry(event.target.value);
-  };
-  const handleYearChange = (event) => {
+  }, [setSelectedCountry]);
+
+  const handleYearChange = useCallback((event) => {
     setSelectedYear(event.target.value);
-  };
+  }, [setSelectedYear]);
 
 
   return (
@@ -80,7 +80,7 @@ const Sorting = ({setAllMovies, limit, setLimit, allMovies}) => {
   );
 };
 
-export default Sorting;
+export const Sorting = memo(SortingComponent)
 
 
 

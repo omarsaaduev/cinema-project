@@ -1,9 +1,10 @@
-import Latest from "../../components/Latest/Latest";
-import Movie from "../../components/Movie/Movie";
-import Upcoming from "../../components/Upcoming/Upcoming";
+import { memo } from "react";
+import {Latest} from "../../components/Latest/Latest";
+import {Movie} from "../../components/Movie/Movie";
+import {Upcoming} from "../../components/Upcoming/Upcoming";
 
 
-export default function Home() {
+function HomeComponent() {
   
   return (
     <>
@@ -13,3 +14,6 @@ export default function Home() {
     </>
   )
 }
+
+export const Home = memo(HomeComponent)
+

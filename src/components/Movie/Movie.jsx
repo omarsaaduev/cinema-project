@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import './Movie.scss'
 import { getData } from '../../api/getMovies';
 import { formatMovieLength } from '../../utils/formatMovieLength';
 import { Link } from 'react-router-dom';
 
-export default function Movie() {
+function MovieComponent() {
     const [movies, setMovies] = useState([]);
     const [index, setIndex] = useState(0);
     const currentMovie = movies[index];
@@ -79,3 +79,5 @@ export default function Movie() {
     </section>
   )
 }
+
+export const Movie = memo(MovieComponent)

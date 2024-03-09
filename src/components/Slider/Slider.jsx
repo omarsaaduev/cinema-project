@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import './Slider.scss'; 
 import { Link } from 'react-router-dom';
 
-export const Slider = ({images}) => {
+const SliderComponent = ({images}) => {
   
   const containerRef = useRef(null); // Ссылка на контейнер изображений
   const [scrollLeft, setScrollLeft] = useState(0); // текущая позиция скролла
@@ -41,3 +41,4 @@ export const Slider = ({images}) => {
   );
 }
 
+export const Slider = memo(SliderComponent)

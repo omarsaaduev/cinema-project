@@ -1,9 +1,9 @@
 import { Link, useLocation } from 'react-router-dom'
 import './Header.scss'
-import { useContext } from 'react';
+import { memo, useContext } from 'react';
 import { Context } from '../../context/context';
 import Menu from '../Menu/Menu';
-const Header = () => {
+const HeaderComponent = () => {
   const {pathname} = useLocation();
   const {openMenu, setOpenMenu} = useContext(Context)
   
@@ -53,4 +53,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export const Header = memo(HeaderComponent)
